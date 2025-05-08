@@ -3,29 +3,47 @@
 <html>
 <head>
 	<TITLE>SRIJAN</TITLE>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<FORM action="https://formspree.io/f/mvgaayyr"
-  method="POST>
-		<H1 STYLE="text-align:CENTER;COLOR:RED">REGISTRATION!! FORM FOR CLASS 11(2081)</H1>
-		<br><br>
-		<div STYLE="text-align:CENTER;">
+	<FORM ACTION="#" METHOD="POST">
+		<H1>REGISTRATION!! FORM FOR CLASS 11(2081)</H1>
+		<hr color="white" >
+		<br>
+
+<div id="whole">
+		<fieldset>
+		<legend>LOGIN INFO</legend>
+		<div>
+			<br>
 		USERNAME:<INPUT TYPE="TEXT" NAME="USER">
 		<br><br>
-		PASSWORD:<INPUT TYPE="password" NAME="password"> 
+		PASSWORD:<INPUT TYPE="TEXT" NAME="USER"> 
 		</div>
+		</fieldset>
 		<br><br>
-		<div style="text-align:center;">
-			Full Name:<input type="text" name="name" size="100%">
-			</div>
 
-<br><br>
-			Full Adress:<input type="text" name="adre" value="eg:RAMBAN TADI">
-			MUNCIPLITY:<input type="text" name="MUNCIPLITY" value="eg:JEETPURSIMARA S.M.C" >
+		
+
+
+<fieldset >
+	<legend>Personal info (ALL IN BLOCK LETTERS)</legend>
+	<br>
+<center>
+	<div>
+			Full Name:<input type="text" name="name">
+			</div><br><br>
+			Full Adress:<input type="text" name="adre" placeholder="eg:RAMBAN TADI">
+			MUNCIPLITY:<input type="text" name="MUNCIPLITY" PLACEHOLDER="eg:JEETPURSIMARA S.M.C" > <br><br>
 			Ward no:<input type="number" name="ward" >
 			<br><br>
 			Phone NO:<input type="number" name="PH NO">
 			GENDER:<INPUT TYPE="RADIO" NAME="GEN" value="MALE">MALE <INPUT TYPE="RADIO" NAME="GEN" value="FEMALE">FEMALE
+</center>
+</fieldset>
+<br><br>
+<fieldset>
+	<legend>Academic Details</legend>
 <br><br>
 			Faculty:<select name="Faculty">				
 					<option value="SCIENCE">SCIENCE</option>
@@ -34,28 +52,37 @@
 					<option value="ARTS">ARTS</option>
 					</select>
 <br><br>
-<div style="text-align:center;">
-			SUBJECTS:<input type="text" name="SUB1">
-					 <input type="text" name="SUB2">
+
+<div>
+			SUBJECTS:<hr><input type="text" name="SUB1">
+					 <input type="text" name="SUB2"><br><br>
 					 <input type="text" name="SUB3">
-					 <input type="text" name="SUB4">
+					 <input type="text" name="SUB4"><br><br>
 					 <input type="text" name="SUB5">
-					 <input type="text" name="SUB6">
+					 <input type="text" name="SUB6"><br><br>
 					 <input type="text" name="SUB7">
-					 <input type="text" name="SUB8">
+					 <input type="text" name="SUB8"><br>
 					</div>
+					<br>
+					</fieldset>
 					<br><br>
-<textarea name="DESCRIPTIION" style="width:100% ;height:20% ;"> SOME EXTRA DESCRIPTIION</textarea>
-FAVORATE TEACHERS:<input type="CHECKBOX" name="COMP">COMPUTER SIR
+
+<fieldset>
+FAVORATE TEACHERS:<hr><input type="CHECKBOX" name="COMP">COMPUTER SIR
 				  <input type="CHECKBOX" name="ENG">ENGLISH SIR
 				  <input type="CHECKBOX" name="PHYS">PHYSICS SIR
-				  <input type="CHECKBOX" name="CHEM">CHEMISTRY SIR
+				  <input type="CHECKBOX" name="CHEM">CHEMISTRY SIR<br><br>
 				  <input type="CHECKBOX" name="OTHER"><input type="text" name="OTHER" value="OTHER">
-				  <br><br><br>
+				  <br></div>
+</fieldset>
+<br><textarea name="DESCRIPTIION" placeholder="some extra details"></textarea>
+<br><br>
 
-	<input type="SUBMIT" name="SUBMIT" VALUE="SUBMIT" style="width:10%;height:30%;color: limegreen;">
+	<input type="SUBMIT" name="SUBMIT" VALUE="SUBMIT"><br><br>
+	<input type="reset" name="reset" value="clear">
 
 	</FORM>
+	<p id="credityrrr">-designed by Srijan Dhungana</p>
 
 </body>
 </html>
