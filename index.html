@@ -4,9 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NEB NOTES</title>
-  <head>
-  <!-- Your existing head code -->
 
+  <!-- Google Translate -->
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
@@ -15,29 +14,17 @@
       }, 'google_translate_element');
     }
   </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <script type="text/javascript" 
-    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-  </script>
-
+  <!-- Hide Google Banner -->
   <style>
-    /* Hide the ugly banner Google adds at the top */
-    .goog-te-banner-frame.skiptranslate {
-      display: none !important;
-    }
-    body {
-      top: 0px !important;
-    }
-    .goog-logo-link,
-    .goog-te-gadget span {
-      display: none !important;
-    }
-    #google_translate_element {
-      display: inline-block;
-    }
+    .goog-te-banner-frame.skiptranslate { display: none !important; }
+    body { top: 0px !important; }
+    .goog-logo-link, .goog-te-gadget span { display: none !important; }
+    #google_translate_element { display: inline-block; }
   </style>
-</head>
 
+  <!-- Main Styles -->
   <style>
     * {
       margin: 0;
@@ -73,6 +60,9 @@
       font-weight: bold;
       color: black;
       text-decoration: none;
+      text-align:center;
+      display: block;
+      width: 100%;
     }
     .main-content {
       display: flex;
@@ -164,13 +154,19 @@
       text-align: center;
       margin-bottom: 20px;
     }
+
     .section-break {
       width: 100%;
-      height: 30px;
+      height: 2px;
+      background-color: white;
+      margin: 30px 0;
+      opacity: 0.3;
+      border-radius: 10px;
     }
+
     @media (max-width: 768px) {
       .main-content {
-        flex-direction: column; /* Changed from column-reverse to column */
+        flex-direction: column;
         align-items: center;
       }
       .search-box {
@@ -178,26 +174,37 @@
         margin-top: 10px;
       }
       .left-image {
-        order: 1; /* Make left-image appear first */
+        order: 1;
         align-items: center;
       }
       .right-content {
-        order: 2; /* Make right-content appear second */
+        order: 2;
       }
     }
+
+    /* SMOOTH MENU ANIMATION */
     .overlay-menu {
-      display: none;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
+      background-color: rgba(0, 0, 0, 0.95);
       color: white;
+      display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-20px);
+      transition: all 0.3s ease-in-out;
       z-index: 9999;
+    }
+    .overlay-menu.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
     .overlay-menu a {
       color: white;
@@ -212,19 +219,38 @@
       font-size: 30px;
       cursor: pointer;
     }
+
+    #copyBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ffd166;
+      color: black;
+      border: none;
+      border-radius: 50%;
+      font-size: 24px;
+      padding: 15px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 10000;
+      transition: transform 0.2s;
+    }
+    #copyBtn:hover {
+      transform: scale(1.1);
+    }
   </style>
 </head>
+
 <body>
   <header>
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
-    <center><a href="index.html" class="logo">NEB NOTES</a></center>
+    <a href="index.html" class="logo">NEB NOTES</a>
     <div>
-      <div id="google_translate_element" class="translate-btn"></div>
-
-      <button class="share-btn" onclick="shareSite()">🔗</button>
+            <button onclick="shareSite()" id="copyBtn">🔗</button>
     </div>
   </header>
 
+  <!-- Menu Overlay -->
   <div class="overlay-menu" id="overlayMenu">
     <div class="overlay-close" onclick="toggleMenu()">&times;</div>
     <a href="index.html">Home</a>
@@ -234,6 +260,7 @@
     <a href="about.html">About Us</a>
   </div>
 
+  <!-- Search Box -->
   <div class="search-box">
     <input type="text" placeholder="Search notes..." />
   </div>
@@ -249,7 +276,6 @@
 
     <div class="right-content">
       <div class="title">NEB study notes</div>
-
       <div class="category-container">
         <a class="category" href="class11.html">Class 11</a>
         <a class="subject" href="science11.html">SCIENCE</a>
@@ -272,47 +298,15 @@
     </div>
   </div>
 
-  <script>
-    function toggleMenu() {
-      const overlay = document.getElementById("overlayMenu");
-      overlay.style.display = overlay.style.display === "flex" ? "none" : "flex";
-    }
-    function translateSite() {
-      alert("Google Translate triggered");
-    }
-    function shareSite() {
-      navigator.clipboard.writeText(window.location.href).then(() => {
-        alert("Site link copied to clipboard");
-      });
-    }
-  </script>
-    <!-- Add the popup div just before the closing body tag -->
-  <div id="customPopup" style="
-    display: none;
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #ffd166;
-    color: black;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    z-index: 9999;
-  ">
+  <!-- Copy Popup -->
+  <div id="customPopup" style="display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background-color: #ffd166; color: black; padding: 10px 20px; border-radius: 10px; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 9999;">
     Link copied to clipboard!
   </div>
 
-  <!-- Your JavaScript should go right here -->
+  <!-- Scripts -->
   <script>
     function toggleMenu() {
-      const overlay = document.getElementById("overlayMenu");
-      overlay.style.display = overlay.style.display === "flex" ? "none" : "flex";
-    }
-
-    function translateSite() {
-      alert("Google Translate triggered");
+      document.getElementById("overlayMenu").classList.toggle("active");
     }
 
     function shareSite() {
@@ -330,8 +324,5 @@
       }, 2000);
     }
   </script>
-</body>
-</html>
-
 </body>
 </html>
