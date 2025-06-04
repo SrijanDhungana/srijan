@@ -1,158 +1,337 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NEB Notes</title>
+  <title>NEB NOTES</title>
+  <head>
+  <!-- Your existing head code -->
+
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+      }, 'google_translate_element');
+    }
+  </script>
+
+  <script type="text/javascript" 
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+  </script>
+
   <style>
+    /* Hide the ugly banner Google adds at the top */
+    .goog-te-banner-frame.skiptranslate {
+      display: none !important;
+    }
     body {
+      top: 0px !important;
+    }
+    .goog-logo-link,
+    .goog-te-gadget span {
+      display: none !important;
+    }
+    #google_translate_element {
+      display: inline-block;
+    }
+  </style>
+</head>
+
+  <style>
+    * {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #113d2c;
-      color: #fff;
-    }header {
-  background-color: #f4c35d;
-  color: #113d2c;
-  text-align: center;
-  padding: 1rem;
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-
-.search-box {
-  margin: 1.5rem auto;
-  text-align: center;
-}
-
-
-.search-box input {
-  width: 300px;
-  padding: 0.6rem 1rem;
-  border-radius: 25px;
-  border: none;
-  font-size: 1rem;
-  text-align: center;
-}
-
-
-.main-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2rem;
-  flex-wrap: wrap;
-}
-
-
-.left-img {
-  max-width: 35%;
-}
-
-
-.left-img img {
-  width: 100%;
-  border-radius: 8px;
-}
-
-
-.right-content {
-  flex: 1;
-  padding-left: 2rem;
-}
-
-
-.right-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  font-weight: bold;
-}
-
-
-.category-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-
-.bubble {
-  background-color: #f4c35d;
-  color: #000;
-  padding: 0.6rem 1rem;
-  border-radius: 20px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-
-.sub-bubble {
-  background-color: #f0f0f0;
-  color: #000;
-  padding: 0.4rem 0.8rem;
-  border-radius: 15px;
-  font-weight: 500;
-}
-
-
-footer {
-  text-align: left;
-  padding: 1rem 2rem;
-  color: #cfcfcf;
-  font-size: 0.9rem;
-}
-
-
-footer a {
-  color: #d3eaff;
-  text-decoration: underline;
-}
-
-
-@media (max-width: 768px) {
-  .main-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  .right-content {
-    padding-left: 0;
-    text-align: center;
-  }
-}
-
-
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background-color: #143c2c;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background-color: #ffd166;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .menu-btn, .share-btn, .translate-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: black;
+      text-decoration: none;
+    }
+    .main-content {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+      gap: 20px;
+      flex: 1;
+    }
+    .left-image {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .left-image img {
+      width: 100%;
+      max-width: 400px;
+    }
+    .right-content {
+      flex: 2 1 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .search-box {
+      background-color: white;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 30px;
+      width: 50%;
+      margin: 20px auto;
+      font-weight: bold;
+      text-align: center;
+    }
+    .search-box input {
+      border: none;
+      width: 90%;
+      padding: 8px;
+      font-size: 16px;
+      outline: none;
+    }
+    .title {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      text-decoration: underline;
+      text-align: center;
+    }
+    .category-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+      margin-top: 40px;
+      justify-content: center;
+    }
+    .category {
+      background-color: #ffd166;
+      color: black;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .category:hover {
+      transform: scale(1.05);
+    }
+    .subject {
+      background-color: white;
+      color: black;
+      padding: 8px 15px;
+      border-radius: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .important-links {
+      font-size: 14px;
+      color: #b4f2e1;
+      text-align: center;
+    }
+    .important-links a {
+      color: #b4f2e1;
+      text-decoration: underline;
+    }
+    .by-author {
+      font-size: 12px;
+      margin-top: 5px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .section-break {
+      width: 100%;
+      height: 30px;
+    }
+    @media (max-width: 768px) {
+      .main-content {
+        flex-direction: column; /* Changed from column-reverse to column */
+        align-items: center;
+      }
+      .search-box {
+        width: 80%;
+        margin-top: 10px;
+      }
+      .left-image {
+        order: 1; /* Make left-image appear first */
+        align-items: center;
+      }
+      .right-content {
+        order: 2; /* Make right-content appear second */
+      }
+    }
+    .overlay-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      color: white;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .overlay-menu a {
+      color: white;
+      font-size: 24px;
+      margin: 10px 0;
+      text-decoration: none;
+    }
+    .overlay-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-  <header>NEB NOTES</header>  <div class="search-box">
-    <input type="text" placeholder="SEARCH" />
-  </div>  <div class="main-container">
-    <div class="left-img">
-      <img src="img.png.png" alt="Study Illustration" />
-    </div><div class="right-content">
-  <h1>NEB study notes</h1>
+  <header>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <a href="index.html" class="logo">NEB NOTES</a>
+    <div>
+      <div id="google_translate_element" class="translate-btn"></div>
 
+      <button class="share-btn" onclick="shareSite()">🔗</button>
+    </div>
+  </header>
 
-  <div class="category-group">
-    <div class="bubble">Class 11</div>
-    <div class="sub-bubble">SCIENCE</div>
-    <div class="sub-bubble">MANAGEMENT</div>
-    <div class="sub-bubble">EDUCATION</div>
-    <div class="sub-bubble">ARTS</div>
-    <div class="bubble">MODAL QUESTIONS</div>
-    <div class="bubble">Class 12</div>
-    <div class="sub-bubble">SCIENCE</div>
-    <div class="sub-bubble">MANAGEMENT</div>
-    <div class="sub-bubble">EDUCATION</div>
-    <div class="sub-bubble">ARTS</div>
+  <div class="overlay-menu" id="overlayMenu">
+    <div class="overlay-close" onclick="toggleMenu()">&times;</div>
+    <a href="index.html">Home</a>
+    <a href="class11.html">Class 11</a>
+    <a href="class12.html">Class 12</a>
+    <a href="modal-questions.html">Modal Questions</a>
+    <a href="about.html">About Us</a>
   </div>
-</div>
 
+  <div class="search-box">
+    <input type="text" placeholder="Search notes..." />
+  </div>
 
-  </div>  <footer>
-    <a href="#">IMPORTANT LINKS</a>
-    <br /><br />
-    BY SRIJAN DHUNGANA
-  </footer>
+  <div class="main-content">
+    <div class="left-image">
+      <img src="img..png.png" alt="Study Illustration">
+      <div>
+        <div class="important-links"><a href="#">IMPORTANT LINKS</a></div>
+        <div class="by-author">BY SRIJAN DHUNGANA</div>
+      </div>
+    </div>
+
+    <div class="right-content">
+      <div class="title">NEB study notes</div>
+
+      <div class="category-container">
+        <a class="category" href="class11.html">Class 11</a>
+        <a class="subject" href="science11.html">SCIENCE</a>
+        <a class="subject" href="management11.html">MANAGEMENT</a>
+        <a class="subject" href="education11.html">EDUCATION</a>
+        <a class="subject" href="arts11.html">ARTS</a>
+
+        <div class="section-break"></div>
+
+        <a class="category" href="modal-questions.html">MODAL QUESTIONS</a>
+
+        <div class="section-break"></div>
+
+        <a class="category" href="class12.html">Class 12</a>
+        <a class="subject" href="education12.html">EDUCATION</a>
+        <a class="subject" href="science12.html">SCIENCE</a>
+        <a class="subject" href="arts12.html">ARTS</a>
+        <a class="subject" href="management12.html">MANAGEMENT</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const overlay = document.getElementById("overlayMenu");
+      overlay.style.display = overlay.style.display === "flex" ? "none" : "flex";
+    }
+    function translateSite() {
+      alert("Google Translate triggered");
+    }
+    function shareSite() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        alert("Site link copied to clipboard");
+      });
+    }
+  </script>
+    <!-- Add the popup div just before the closing body tag -->
+  <div id="customPopup" style="
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffd166;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 9999;
+  ">
+    Link copied to clipboard!
+  </div>
+
+  <!-- Your JavaScript should go right here -->
+  <script>
+    function toggleMenu() {
+      const overlay = document.getElementById("overlayMenu");
+      overlay.style.display = overlay.style.display === "flex" ? "none" : "flex";
+    }
+
+    function translateSite() {
+      alert("Google Translate triggered");
+    }
+
+    function shareSite() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        showCustomPopup("Link copied to clipboard!");
+      });
+    }
+
+    function showCustomPopup(message) {
+      const popup = document.getElementById("customPopup");
+      popup.textContent = message;
+      popup.style.display = "block";
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
+
 </body>
 </html>
